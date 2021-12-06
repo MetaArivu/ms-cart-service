@@ -13,5 +13,6 @@
         <module>ms.shopping.cart.cmd.service</module>
         <module>ms.shopping.cart.query.service</module>
         <module>ms.shopping.cart.aggregator.service</module>
+        <module>ms.shopping.cart.enhancer.service</module>
     </modules>
 </project>

@@ -33,6 +33,7 @@ public class AppProperties {
 
 	@Value("${app.kafka.bootstrap-servers}")
 	private String kafkaBootstrapServer;
+ 
 
 	public String[] getPublicAPI() {
 		return this.publicAPI;
@@ -73,5 +74,5 @@ public class AppProperties {
 	public String getKafkaBootstrapServer() {
 		return kafkaBootstrapServer;
 	}
-
+ 
 }

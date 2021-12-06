@@ -1,18 +1,21 @@
-package com.shopping.cart.adapter.entity;
+package com.shopping.cart.adapter.entities;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
- 
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+@Document(value = "shopping_cart_details")
 @JsonDeserialize(builder = ShoppingCart.Builder.class)
-public class ShoppingCart {
+public class ShoppingCart extends BaseEntity{
 
 	private String customerId;
 	
@@ -93,6 +96,11 @@ public class ShoppingCart {
 		}
 
 		return null;
+	}
+
+	@Override
+	public boolean isValid() {		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

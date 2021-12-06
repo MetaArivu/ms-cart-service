@@ -1,4 +1,4 @@
-package com.shopping.cart.adapter.entity;
+package com.shopping.cart.adapter.entities;
 
 public class LineItems {
 

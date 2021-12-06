@@ -1,10 +1,9 @@
-com/shopping/cart/event/CartEvent$CartEventBuilder.class
-com/shopping/cart/event/ProductEvent.class
-com/shopping/cart/ShoppingCartAgggregator.class
-com/shopping/cart/service/CartEnrichService.class
-com/shopping/cart/event/ShoppingCart$Builder.class
-com/shopping/cart/event/EventType.class
+com/shopping/cart/service/CartEventSourceAggregator$1.class
 com/shopping/cart/event/LineItems.class
 com/shopping/cart/event/ShoppingCart.class
 com/shopping/cart/event/CartEvent.class
-com/shopping/cart/service/CartEnrichBinder.class
+com/shopping/cart/event/CartEvent$CartEventBuilder.class
+com/shopping/cart/event/ProductEvent.class
+com/shopping/cart/ShoppingCartAgggregator.class
+com/shopping/cart/event/ShoppingCart$Builder.class
+com/shopping/cart/event/EventType.class

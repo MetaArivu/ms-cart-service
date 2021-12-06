@@ -27,7 +27,7 @@ spring:
             configuration:
               schema.registry.url: http://localhost:8081
               processing.guarantee: exactly_once
-              state.dir: shopping-cart-aggregate-svc-606511
+              state.dir: shopping-cart-aggregate-svc-6065
 
         
               
