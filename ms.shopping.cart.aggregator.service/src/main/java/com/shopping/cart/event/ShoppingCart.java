@@ -39,13 +39,13 @@ public class ShoppingCart {
 			return this;
 		}
 
-		public Builder addLineItem(String itemId, String itemName, int qty, double price) {
+		public Builder addLineItem(String itemId, String itemName, int qty, double price, String image) {
 			int prevQty = 0;
 			LineItems lineItem = lineItemsMap.get(itemId);
 			if (lineItem != null && qty > 0) {
 				prevQty = lineItem.getQty();
 			}
-			lineItemsMap.put(itemId, new LineItems(itemId, itemName, prevQty + qty, price));
+			lineItemsMap.put(itemId, new LineItems(itemId, itemName, prevQty + qty, price, image));
 			return this;
 		}
 

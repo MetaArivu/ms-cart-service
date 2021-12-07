@@ -24,7 +24,8 @@ public class CartEvent {
 	private double price;
 	private int qty;
 	private EventType eventType;
-
+	private String image;
+	
 	public static CartEvent parse(String _event) {
 		try {
 			return new ObjectMapper().readValue(_event, CartEvent.class);

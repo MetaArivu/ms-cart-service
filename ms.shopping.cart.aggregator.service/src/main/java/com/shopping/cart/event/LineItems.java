@@ -7,17 +7,19 @@ public class LineItems {
 	private String itemName;
 	private double unitPrice;
 	private double totalPrice;
-
+	private String image;
+	
 	public LineItems() {
 
 	}
 
-	public LineItems(String _itemId, String _itemName, int _qty, double _unitPrice) {
+	public LineItems(String _itemId, String _itemName, int _qty, double _unitPrice, String image) {
 		this.itemId = _itemId;
 		this.itemName = _itemName;
 		this.qty = _qty;
 		this.unitPrice = _unitPrice;
 		this.totalPrice = this.qty * this.unitPrice;
+		this.image = image;
 	}
 
 	public String getItemId() {
@@ -38,6 +40,12 @@ public class LineItems {
 
 	public double getTotalPrice() {
 		return totalPrice;
+	}
+	
+	
+
+	public String getImage() {
+		return image;
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class CartEnrichService {
 				  ProductEvent prodEvent = ProductEvent.parse(_product);
 				  return new CartEvent(cartEvent.getCustomerId(), cartEvent.getItemId(), 
 						  prodEvent.getName(), prodEvent.getPrice(), 
-						  cartEvent.getQty(), cartEvent.getEventType());
+						  cartEvent.getQty(), cartEvent.getEventType(), prodEvent.getImage());
 			  })
 		.peek((k,v) -> log.info("Enhanced Cart Key: {}, Value: {}", k, v))
 		.to("cart-details-event", Produced.with(Serdes.String(), new JsonSerde<>(CartEvent.class)));
