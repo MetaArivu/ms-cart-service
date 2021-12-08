@@ -15,26 +15,35 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 @Document(value = "shopping_cart_details")
 @JsonDeserialize(builder = ShoppingCart.Builder.class)
-public class ShoppingCart extends BaseEntity{
+public class ShoppingCart extends BaseEntity {
 
 	private String customerId;
-	
+	private String eventType;
+
 	private List<LineItems> lineItems = new ArrayList<LineItems>();
 
-	public ShoppingCart(String customerId, List<LineItems> lineItems) {
+	public ShoppingCart(String customerId, String eventType, List<LineItems> lineItems) {
 		this.customerId = customerId;
+		this.eventType = eventType;
 		this.lineItems = lineItems;
 	}
 
 	@JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
 	public static class Builder {
 		private String customerId;
+		private String eventType;
 		private LinkedHashMap<String, LineItems> lineItemsMap = new LinkedHashMap<String, LineItems>();
 
 		public Builder customerId(String _customerId) {
 			this.customerId = _customerId;
 			return this;
 		}
+		
+		public Builder eventType(String eventType) {
+			this.eventType = eventType;
+			return this;
+		}
+
 
 		public Builder lineItems(List<LineItems> _lineItem) {
 			_lineItem.forEach((lineItem) -> {
@@ -58,7 +67,7 @@ public class ShoppingCart extends BaseEntity{
 		}
 
 		public ShoppingCart build() {
-			return new ShoppingCart(customerId, getLineItems());
+			return new ShoppingCart(customerId,eventType, getLineItems());
 		}
 
 	}
@@ -69,6 +78,11 @@ public class ShoppingCart extends BaseEntity{
 
 	public List<LineItems> getLineItems() {
 		return lineItems;
+	}
+
+	
+	public String getEventType() {
+		return eventType;
 	}
 
 	public String toJson() {
@@ -99,7 +113,7 @@ public class ShoppingCart extends BaseEntity{
 	}
 
 	@Override
-	public boolean isValid() {		// TODO Auto-generated method stub
+	public boolean isValid() { // TODO Auto-generated method stub
 		return true;
 	}
 

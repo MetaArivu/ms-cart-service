@@ -15,20 +15,29 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 public class ShoppingCart {
 
 	private String customerId;
+	private String eventType;
 	private List<LineItems> lineItems = new ArrayList<LineItems>();
 
-	public ShoppingCart(String customerId, List<LineItems> lineItems) {
+	public ShoppingCart(String customerId, String eventType, List<LineItems> lineItems) {
 		this.customerId = customerId;
 		this.lineItems = lineItems;
+		this.eventType = eventType;
 	}
 
 	@JsonPOJOBuilder(buildMethodName = "build", withPrefix = "")
 	public static class Builder {
 		private String customerId;
+		private String eventType;
+
 		private LinkedHashMap<String, LineItems> lineItemsMap = new LinkedHashMap<String, LineItems>();
 
 		public Builder customerId(String _customerId) {
 			this.customerId = _customerId;
+			return this;
+		}
+
+		public Builder eventType(String _eventType) {
+			this.eventType = _eventType;
 			return this;
 		}
 
@@ -54,7 +63,7 @@ public class ShoppingCart {
 		}
 
 		public ShoppingCart build() {
-			return new ShoppingCart(customerId, getLineItems());
+			return new ShoppingCart(customerId, eventType, getLineItems());
 		}
 
 	}
@@ -65,6 +74,10 @@ public class ShoppingCart {
 
 	public List<LineItems> getLineItems() {
 		return lineItems;
+	}
+
+	public String getEventType() {
+		return eventType;
 	}
 
 	public String toJson() {

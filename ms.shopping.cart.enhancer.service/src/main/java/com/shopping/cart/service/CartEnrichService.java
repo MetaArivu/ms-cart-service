@@ -35,7 +35,7 @@ public class CartEnrichService {
 		}).peek((k, v) -> log.info("Cart Event Key={}, Value={}", k, v));
 
 		updatedCartEventStream.filter((k, v) -> {
-			return v.getEventType().equals(EventType.CLEAR_CART);
+			return v.getEventType().equals(EventType.CLEAR_CART) ||  v.getEventType().equals(EventType.CHECKOUT);
 		}).map((k, v) -> {
 			CartEvent event = new CartEvent(v.getCustomerId(), v.getItemId(), "NA", 0.0, v.getQty(), v.getEventType(),"NA");
 			return KeyValue.pair(event.getItemId(), event);
