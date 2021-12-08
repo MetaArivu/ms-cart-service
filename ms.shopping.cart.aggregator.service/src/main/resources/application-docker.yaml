@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: shopping-cart-aggregate-svc
+    version: V1
+  zipkin:
+    enabled: true
+    base-url: http://ZIPKIN_SVC
+  sleuth:
+    enabled: true
+    traceId128: true
+    sampler: 
+      probability: 1
+    async:
+      enabled: true
+  cloud:
+    stream:
+      bindings:
+        cart-input-channel:
+          destination: cart-events
+        product-input-channel:
+          destination: product-created-event
+        cart-details-input-channel:
+          destination: cart-details-event  
+      kafka:
+        streams:
+          binder:
+            brokers:  KAFKA_SVC
+            configuration:
+              schema.registry.url: http://localhost:8081
+              processing.guarantee: exactly_once
+              state.dir: shopping-cart-aggregate-svc-6065
