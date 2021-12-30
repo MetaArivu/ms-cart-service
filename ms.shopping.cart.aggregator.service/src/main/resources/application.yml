@@ -4,7 +4,7 @@ spring:
     version: V1
   zipkin:
     enabled: true
-    base-url: http://localhost:9411
+    base-url: http://zipkin-svc
   sleuth:
     enabled: true
     traceId128: true
@@ -24,11 +24,9 @@ spring:
       kafka:
         streams:
           binder:
-            brokers:  localhost:9092
+            brokers:  kafka-svc:9092
             configuration:
-              schema.registry.url: http://localhost:8081
               processing.guarantee: exactly_once
               state.dir: shopping-cart-aggregate-svc-6065
-
         
               
